@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="row mt-2">
+        <div class="col-8 offset-2"> <br>
+            <h3>Edit Details: </h3> <br>
+            <form method="post" action="/listing/<%=currListing._id%>/edit?_method=PUT">
+                <div>
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" id="title" name="listing[title]" value="<%=currListing.title%>" class="form-control"> 
+                </div> <br>
+
+                <div>
+                    <label for="description" class="form-label">Description: </label>
+                    <textarea class="form-control" name="listing[description]" id="description"><%=currListing.description%></textarea>
+                </div> <br>
+
+                <div>
+                    <label for="image" class="form-label">Input Image URL: </label>
+                    <textarea name="listing[image][url]" id="image" class="form-control" rows="4"><%=currListing.image.url%></textarea>
+                </div> <br>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Input Price: </label>
+                        <input type="number" class="form-control" id="price" name="listing[price]" value="<%=currListing.price%>">
+                    </div>
+                
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Input Country: </label>
+                        <input type="country" class="form-control" id="country" name="listing[country]" value="<%=currListing.country%>">
+                    </div>
+                </div> <br>
+
+                <div>
+                    <label for="location" class="form-label">Input location: </label>
+                    <input type="location" class="form-control" id="location" name="listing[location]" value="<%=currListing.location%>">
+                </div>
+                
+                <button class="btn btn-dark edit-btn mt-3">submit</button> 
+            </form>
+        </div>
+    </div>
+    
+
+</body>
+</html>
