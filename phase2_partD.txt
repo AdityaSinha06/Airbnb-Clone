@@ -1,0 +1,36 @@
+#Authentication / Authorization : 
+->Authentication : verifying someone's identity , process of verifying who someone is : sign / login
+->Authorization: process of verifying what specific applications , files, and data a user has access to
+
+--storing passwords: 
+generally, we store emails , usernames , passwords: we can store emails , usernames as it it. but passwords 
+must be stored in such a form that it is not directly accessible, not directly readable. encrypted.
+- we never store them as it is, we store their hashed form.
+- coz if the db got leaked or cracked, that password can be used by the hackers so they must be encrypted to
+avoid direct accessing
+
+password -- hashing function -- how it is stored
+i/p --------------------------> o/p
+"helloworld"  -------------> "809283049823048238092840923 --- some string" --> stored in db
+the hashing function is such strong function that even if one got the stored string, original password won't be retrieved
+
+-- the entire process: 
+1. signup :: asks for email , username , password ::> stored in db(where the password is stored in hashed form)
+
+2. login :: asks for username and password :: for that first checks if db has that username data , if it does; checks the hashed form of the current i/p password with the already stored one. if they matched :: loggedin, else : prompt wrong password
+
+#important characteristic of hashing function:  , e.g : SHA-256
+- for every i/p , hashing function gives a fixed length o/p
+- these are one-way fn, we can't get i/p from o/p
+- for a diff i/p, there is a different o/p but of same length
+- we tend to use a hashing fn , which is slow, to delay the password matching process
+
+#salting : password salting is a technique to protect passwords stored in db by adding a string of 32 or more characters and then hashing them.
+-coz' to prevent the hackers from getting to the exact password, 
+-even if they try to deduce the password from the hashed form , they'd get it in the salted form 
+
+---> inbuilt tools we'd use :: Passport.js : a library helps for authentication : passportjs.org 
+------> this offers many strategies for same,  like via spotify , linkedin , github ... (rem? login with github...)
+
+-- Passport.js : express-compatible authentication middleware for Node.js
+: npm i passport , passport-local , passport-local-mongoose ::> local : username , password auth 

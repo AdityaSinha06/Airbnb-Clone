@@ -1,0 +1,32 @@
+1. what is state?
+
+-> session : client --> server interaction in one go. :: the conversation
+-> protocol : the protocol used in the req-res cycle.
+
+--> types of protocols : 
+-state : the related info about the session or the transaction
+
+-stateful protocol: 
+-----: protocol which stores state of the session; requires server to save the status and session info, eg : ftp
+
+-stateless protocol:
+-----: protocol which doesn't saves any states or any related info of the session; doesnot require the server to retain the server information or any related info. , eg : http
+
+-------------------------------------
+
+2. express sessions :: npm package :: creates a session middleware with the given options
+-an attempt to make all our sessions (http : stateless) :: stateful
+
+--eg :: many a apps like amazon, blinkit , swiggy .. ; allows to add items into a cart without being signed-up or logged-in, and when going to make payment or confirm the transaction ::> it asks to login/signin
+
+-eg: suppose a user, hasn't logged in , and on a page of amazon, adds items like: laptop and charger to the cart, and so has a session id : 101
+
+: now on the client side, the user's system only stores the session id , cookie says hi!! , cookies got limit
+
+: as these info are temp, so we donot tend to store them into db,(there we try to store the permanent data like confirmed transactions) , so temporary storages are used
+
+: we need to store all these coz' they are imp info, if the users changes page these info (as of previous page) must be retained
+
+--------------------------------------
+
+3. connect-flash :: used for flash any msg like when added a new listing , or deleted something a kind of pop-up representing that it was successfully executed. and cleared when refreshed. it is typically used with redirects

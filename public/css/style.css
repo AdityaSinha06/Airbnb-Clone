@@ -60,7 +60,7 @@ color: #222222;
     align-items: space-evenly; 
 }
 
-.card {
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
 }
@@ -110,7 +110,9 @@ color: #222222;
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
+    /* min-width: 70px !important; */
 }
+
 .show-img {
     height: 30vh;
 
@@ -120,11 +122,21 @@ color: #222222;
     display: flex;   
 }
 
-.edit-btn {
-    background-color: #fe424d;
-}
-
 .show-card {
     padding-left: 0;
     padding-right: 0;
+}
+
+.review-card{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+/* Map */
+#map {
+    height: 400px;
+    width: 80vw;
 }
